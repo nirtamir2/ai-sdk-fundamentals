@@ -22,7 +22,7 @@ export default function Page() {
           }
         }}
       >
-        <Input name="location" required placeholder="San Francisco" />
+        <Input required name="location" placeholder="San Francisco" />
         <Button>Tell me a joke</Button>
       </form>
       <pre>{generation}</pre>

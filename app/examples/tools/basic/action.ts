@@ -1,7 +1,7 @@
 "use server";
 
 import { google } from "@ai-sdk/google";
-import { streamText, generateText } from "ai";
+import { generateText, streamText } from "ai";
 import { createStreamableValue } from "ai/rsc";
 import { z } from "zod";
 
@@ -19,7 +19,7 @@ export const generateTextAction = async (location: string) => {
         }),
         execute: async ({ location }) => {
           const temperature = Math.floor(Math.random() * 31); // call external api for {location}
-          return { temperature };
+          return { temperature, location };
         },
       },
     },

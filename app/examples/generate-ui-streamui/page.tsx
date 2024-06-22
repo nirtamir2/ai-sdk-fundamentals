@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ClientMessage } from "./action";
+import type { ClientMessage } from "./action";
 import { useActions, useUIState } from "ai/rsc";
 import { nanoid } from "nanoid";
 
@@ -24,14 +24,14 @@ export default function Home() {
         onSubmit={async (e) => {
           e.preventDefault();
           setInput("");
-          setConversation((currentConversation: ClientMessage[]) => [
+          setConversation((currentConversation: Array<ClientMessage>) => [
             ...currentConversation,
             { id: nanoid(), role: "user", display: input },
           ]);
 
           const message = await continueConversation(input);
 
-          setConversation((currentConversation: ClientMessage[]) => [
+          setConversation((currentConversation: Array<ClientMessage>) => [
             ...currentConversation,
             message,
           ]);
@@ -44,7 +44,7 @@ export default function Home() {
             setInput(event.target.value);
           }}
         />
-        <button>Send Message</button>
+        <button type="submit">Send Message</button>
       </form>
     </div>
   );

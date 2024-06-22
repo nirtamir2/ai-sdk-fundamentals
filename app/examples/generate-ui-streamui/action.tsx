@@ -2,7 +2,7 @@
 
 import { createAI, getMutableAIState, streamUI } from "ai/rsc";
 import { google } from "@ai-sdk/google";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { z } from "zod";
 import { nanoid } from "nanoid";
 import { JokeComponent } from "./joke-component";
@@ -32,7 +32,7 @@ export async function continueConversation(
     messages: [...history.get(), { role: "user", content: input }],
     text: ({ content, done }) => {
       if (done) {
-        history.done((messages: ServerMessage[]) => [
+        history.done((messages: Array<ServerMessage>) => [
           ...messages,
           { role: "assistant", content },
         ]);
@@ -46,14 +46,14 @@ export async function continueConversation(
         parameters: z.object({
           location: z.string().describe("the users location"),
         }),
-        generate: async function* ({ location }) {
+        async *generate ({ location }) {
           yield <div>loading...</div>;
           const joke = await generateObject({
             model: google("models/gemini-1.5-flash-latest"),
             schema: jokeSchema,
             prompt:
-              "Generate a joke that incorporates the following location:" +
-              location,
+              `Generate a joke that incorporates the following location:${ 
+              location}`,
           });
           return <JokeComponent joke={joke.object} />;
         },
@@ -68,7 +68,7 @@ export async function continueConversation(
   };
 }
 
-export const AI = createAI<ServerMessage[], ClientMessage[]>({
+export const AI = createAI<Array<ServerMessage>, Array<ClientMessage>>({
   actions: {
     continueConversation,
   },

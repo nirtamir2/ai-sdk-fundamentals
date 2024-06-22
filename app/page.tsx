@@ -13,7 +13,7 @@ export default function Page() {
         The prompt for the first 4 examples (stream/generate text/object) is
         `Tell me a joke`.
       </p>
-      <ul className="list-disc list-inside">
+      <ul className="list-inside list-disc">
         <li>
           <Link href="/examples/generate-text">Generate Text</Link>
         </li>

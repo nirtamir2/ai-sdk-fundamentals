@@ -2,17 +2,17 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Joke } from "./joke";
+import type { Joke } from "./joke";
 
 export const JokeComponent = ({ joke }: { joke?: Joke }) => {
   const [showPunchline, setShowPunchline] = useState(false);
   return (
-    <div className="bg-neutral-100 p-4 rounded-md m-4 max-w-prose flex items-center justify-between">
+    <div className="m-4 flex max-w-prose items-center justify-between rounded-md bg-neutral-100 p-4">
       <p>{showPunchline ? joke?.punchline : joke?.setup}</p>
       <Button
-        onClick={() => setShowPunchline(true)}
         disabled={showPunchline}
         variant="outline"
+        onClick={() => setShowPunchline(true)}
       >
         Show Punchline!
       </Button>
