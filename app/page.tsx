@@ -6,8 +6,8 @@ export default function Page() {
       <h1 className="text-xl font-semibold">Vercel AI SDK Fundamentals</h1>
       <p>
         The following examples aim to showcase the fundamentals behind the
-        Vercel AI SDK. The examples have minimal loading
-        states to remain as simple as possible.
+        Vercel AI SDK. The examples have minimal loading states to remain as
+        simple as possible.
       </p>
       <p>
         The prompt for the first 4 examples (stream/generate text/object) is

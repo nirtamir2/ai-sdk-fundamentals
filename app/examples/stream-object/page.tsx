@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import type { Joke} from "./action";
+import type { Joke } from "./action";
 import { streamObjectAction } from "./action";
 import { useState } from "react";
 import { readStreamableValue } from "ai/rsc";

@@ -1,6 +1,6 @@
 "use server";
 
-import type { DeepPartial} from "ai";
+import type { DeepPartial } from "ai";
 import { streamObject } from "ai";
 import { google } from "@ai-sdk/google";
 import { createStreamableValue } from "ai/rsc";

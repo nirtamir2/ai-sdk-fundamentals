@@ -46,14 +46,14 @@ export async function continueConversation(
         parameters: z.object({
           location: z.string().describe("the users location"),
         }),
-        async *generate ({ location }) {
+        async *generate({ location }) {
           yield <div>loading...</div>;
           const joke = await generateObject({
             model: google("models/gemini-1.5-flash-latest"),
             schema: jokeSchema,
-            prompt:
-              `Generate a joke that incorporates the following location:${ 
-              location}`,
+            prompt: `Generate a joke that incorporates the following location:${
+              location
+            }`,
           });
           return <JokeComponent joke={joke.object} />;
         },

@@ -1,6 +1,6 @@
 import { streamText } from "ai";
 import dotenv from "dotenv";
-import {ollama} from "ollama-ai-provider";
+import { ollama } from "ollama-ai-provider";
 
 dotenv.config();
 
