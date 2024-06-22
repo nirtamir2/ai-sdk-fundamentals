@@ -18,7 +18,7 @@ async function main() {
         }),
         execute: async ({ location }) => {
           const temperature = Math.floor(Math.random() * 31); // call external api for {location}
-          return { temperature };
+          return { temperature, location };
         },
       },
     },
