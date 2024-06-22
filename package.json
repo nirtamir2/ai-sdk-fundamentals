@@ -3,16 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint . --fix",
-    "format": "prettier ** --write --ignore-unknown",
-    "dev-tools": "tsx ./core/tools.ts",
+    "dev": "next dev --turbo",
     "dev-generate-object": "tsx ./core/generate-object.ts",
     "dev-generate-text": "tsx ./core/generate-text.ts",
     "dev-stream-object": "tsx ./core/stream-object.ts",
-    "dev-stream-text": "tsx ./core/stream-text.ts"
+    "dev-stream-text": "tsx ./core/stream-text.ts",
+    "dev-tools": "tsx ./core/tools.ts",
+    "format": "prettier ** --write --ignore-unknown",
+    "lint": "eslint . --fix",
+    "start": "next start"
   },
   "dependencies": {
     "@ai-sdk/google": "^0.0.23",

@@ -1,13 +1,13 @@
 "use server";
 
-import { createAI, getMutableAIState, streamUI } from "ai/rsc";
-import { google } from "@ai-sdk/google";
 import type { ReactNode } from "react";
-import { z } from "zod";
-import { nanoid } from "nanoid";
-import { JokeComponent } from "./joke-component";
+import { google } from "@ai-sdk/google";
 import { generateObject } from "ai";
+import { createAI, getMutableAIState, streamUI } from "ai/rsc";
+import { nanoid } from "nanoid";
+import { z } from "zod";
 import { jokeSchema } from "./joke";
+import { JokeComponent } from "./joke-component";
 
 export interface ServerMessage {
   role: "user" | "assistant";

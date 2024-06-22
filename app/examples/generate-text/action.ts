@@ -1,7 +1,7 @@
 "use server";
 
-import { generateText } from "ai";
 import { google } from "@ai-sdk/google";
+import { generateText } from "ai";
 
 export const generateTextAction = async () => {
   const result = await generateText({

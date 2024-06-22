@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import type { ClientMessage } from "./action";
 import { useActions, useUIState } from "ai/rsc";
 import { nanoid } from "nanoid";
+import type { ClientMessage } from "./action";
 
 export default function Home() {
   const [input, setInput] = useState<string>("");

@@ -1,10 +1,10 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { generateTextAction } from "./action";
 import { useState } from "react";
-import { Input } from "@/components/ui/input";
 import { readStreamableValue } from "ai/rsc";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { generateTextAction } from "./action";
 
 export default function Page() {
   const [generation, setGeneration] = useState("");

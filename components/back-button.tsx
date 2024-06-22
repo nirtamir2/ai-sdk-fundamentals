@@ -1,6 +1,7 @@
 "use client";
-import { Link } from "./link";
+
 import { usePathname } from "next/navigation";
+import { Link } from "./link";
 
 export const BackButton = () => {
   const pathname = usePathname();

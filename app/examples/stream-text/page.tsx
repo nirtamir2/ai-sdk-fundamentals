@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { streamTextAction } from "./action";
 import { useState } from "react";
 import { readStreamableValue } from "ai/rsc";
+import { Button } from "@/components/ui/button";
+import { streamTextAction } from "./action";
 
 export default function Page() {
   const [generation, setGeneration] = useState("");

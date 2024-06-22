@@ -1,7 +1,7 @@
 "use server";
 
-import { streamText } from "ai";
 import { google } from "@ai-sdk/google";
+import { streamText } from "ai";
 import { createStreamableValue } from "ai/rsc";
 
 export const streamTextAction = async () => {

@@ -1,8 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { generateObjectAction } from "./action";
-import { useState } from "react";
 
 export default function Page() {
   const [generation, setGeneration] = useState<{
