@@ -1,4 +1,4 @@
-import { openai } from "@ai-sdk/openai";
+import { google } from "@ai-sdk/google";
 import { streamObject } from "ai";
 import dotenv from "dotenv";
 import { z } from "zod";
@@ -7,7 +7,7 @@ dotenv.config();
 
 async function main() {
   const result = await streamObject({
-    model: openai("gpt-4o"),
+    model: google("models/gemini-1.5-flash-latest"),
     prompt: "Tell me a joke.",
     schema: z.object({
       setup: z.string().describe("the setup of the joke"),

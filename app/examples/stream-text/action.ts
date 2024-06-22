@@ -1,12 +1,12 @@
 "use server";
 
 import { streamText } from "ai";
-import { openai } from "@ai-sdk/openai";
+import { google } from "@ai-sdk/google";
 import { createStreamableValue } from "ai/rsc";
 
 export const streamTextAction = async () => {
   const result = await streamText({
-    model: openai("gpt-4o"),
+    model: google("models/gemini-1.5-flash-latest"),
     temperature: 0.5,
     prompt: "Tell me a joke.",
   });

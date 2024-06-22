@@ -1,6 +1,6 @@
 "use server";
 
-import { openai } from "@ai-sdk/openai";
+import { google } from "@ai-sdk/google";
 import { streamText, generateText } from "ai";
 import { createStreamableValue } from "ai/rsc";
 import { z } from "zod";
@@ -8,7 +8,7 @@ import { z } from "zod";
 export const generateTextAction = async (location: string) => {
   "use server";
   const { toolResults, toolCalls } = await generateText({
-    model: openai("gpt-4o"),
+    model: google("models/gemini-1.5-flash-latest"),
     temperature: 0.8,
     prompt: `You are a funny chatbot. users location: ${location}`,
     tools: {
@@ -26,7 +26,7 @@ export const generateTextAction = async (location: string) => {
   });
   if (toolResults && toolCalls) {
     const joke = await streamText({
-      model: openai("gpt-4o"),
+      model: google("models/gemini-1.5-flash-latest"),
       prompt: `Tell me a joke that incorporates ${location} and it's current temperature (${toolResults[0].result.temperature})`,
     });
     return createStreamableValue(joke.textStream).value;

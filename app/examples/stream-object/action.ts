@@ -1,7 +1,7 @@
 "use server";
 
 import { DeepPartial, streamObject } from "ai";
-import { openai } from "@ai-sdk/openai";
+import { google } from "@ai-sdk/google";
 import { createStreamableValue } from "ai/rsc";
 import { z } from "zod";
 
@@ -14,7 +14,7 @@ export type Joke = DeepPartial<typeof jokeSchema>;
 
 export const streamObjectAction = async () => {
   const result = await streamObject({
-    model: openai("gpt-4o"),
+    model: google("models/gemini-1.5-flash-latest"),
     temperature: 0.5,
     prompt: "Tell me a joke.",
     schema: jokeSchema,

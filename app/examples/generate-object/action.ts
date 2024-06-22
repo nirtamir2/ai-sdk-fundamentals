@@ -1,12 +1,12 @@
 "use server";
 
 import { generateObject } from "ai";
-import { openai } from "@ai-sdk/openai";
+import { google } from "@ai-sdk/google";
 import { z } from "zod";
 
 export const generateObjectAction = async () => {
   const { object: joke } = await generateObject({
-    model: openai("gpt-4o"),
+    model: google("models/gemini-1.5-flash-latest"),
     temperature: 0.5,
     prompt: "Tell me a joke.",
     schema: z.object({
