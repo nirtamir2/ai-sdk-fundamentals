@@ -1,5 +1,5 @@
 import { google } from "@ai-sdk/google";
-import { generateText, streamText, tool } from "ai";
+import { generateText, streamText } from "ai";
 import dotenv from "dotenv";
 import { z } from "zod";
 
