@@ -1,5 +1,5 @@
 import { google } from "@ai-sdk/google";
-import { generateText, streamText } from "ai";
+import { generateText, streamText, tool } from "ai";
 import dotenv from "dotenv";
 import { z } from "zod";
 
@@ -11,7 +11,7 @@ async function main() {
     model: google("models/gemini-1.5-flash-latest"),
     prompt: `You are a funny chatbot. users location: ${location}`,
     tools: {
-      weather: {
+      weather: tool({
         description: "Get the weather for the user's location",
         parameters: z.object({
           location: z.string().describe("user's location"),
@@ -20,7 +20,7 @@ async function main() {
           const temperature = Math.floor(Math.random() * 31); // call external api for {location}
           return { temperature, location };
         },
-      },
+      }),
     },
   });
 
